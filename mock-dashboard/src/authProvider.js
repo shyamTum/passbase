@@ -7,40 +7,41 @@ export default (type, params) => {
         //localStorage.setItem('username', username);
         const request = new Request('https://mydomain.com/authenticate', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(params),
+            headers: new Headers({ 'Access-Control-Allow-Origin':'https://mydomain.com','Content-Type': 'application/json'
+          }),
         })
-        return fetch(request)
+        return fetch(request, {mode:'no-cors'})
             .then(response => {
-                if (response.status < 200 || response.status >= 300) {
-                    throw new Error(response.statusText);
+               if (response.status < 200 || response.status >= 300) {
+                    return response;
                 }
-                return response.json();
+                return response;
             })
             .then(({ token }) => {
                 localStorage.setItem('token', token);
             });
-    
+
         // accept all username/password combinations
         return Promise.resolve();
     }
     // called when the user clicks on the logout button
     if (type === AUTH_LOGOUT) {
-        localStorage.removeItem('username');
+        localStorage.removeItem('token');
         return Promise.resolve();
     }
     // called when the API returns an error
     if (type === AUTH_ERROR) {
         const { status } = params;
         if (status === 401 || status === 403) {
-            localStorage.removeItem('username');
+            localStorage.removeItem('token');
             return Promise.reject();
         }
         return Promise.resolve();
     }
     // called when the user navigates to a new location
     if (type === AUTH_CHECK) {
-        return localStorage.getItem('username')
+        return localStorage.getItem('token')
             ? Promise.resolve()
             : Promise.reject();
     }
