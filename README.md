@@ -1,6 +1,6 @@
 # passbase challange
 
-###Step to make run the project - 
+### Step to make run the project - 
 ## clone the repository.
 ## go into the folder mock-dashboard
 ## run 'npm install'
