@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = ({
     main: { background: '#333' },
     avatar: {
-        //background: 'url(//cdn.example.com/background.jpg)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
         height: 80,
@@ -25,4 +24,3 @@ const CustomLoginPage = props => (
 );
 
 export default withStyles(styles)(CustomLoginPage);
-//export default CustomLoginPage;
