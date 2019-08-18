@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "email-validator": "^2.0.4",
     "jquery": "^3.4.1",
     "material-ui": "^0.20.2",
     "nodemon": "^1.19.1",
@@ -11,7 +12,10 @@
     "ra-data-json-server": "^2.9.5",
     "react": "^16.9.0",
     "react-admin": "^2.9.5",
+    "react-bootstrap": "^1.0.0-beta.11",
+    "react-bootstrap-modal": "^4.2.0",
     "react-dom": "^16.9.0",
+    "react-modal": "^3.9.1",
     "react-scripts": "3.1.1"
   },
   "scripts": {
